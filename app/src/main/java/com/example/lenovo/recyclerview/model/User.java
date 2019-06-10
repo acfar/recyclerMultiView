@@ -2,16 +2,16 @@ package com.example.lenovo.recyclerview.model;
 
 public class User {
 
-    private String Task;
+    private String task;
     private boolean isDone;
 
     public User(String task, boolean isDone) {
-        Task = task;
+        this.task = task;
         this.isDone = isDone;
     }
 
     public void setTask(String task) {
-        Task = task;
+        this.task = task;
     }
 
     public void setDone(boolean done) {
@@ -19,7 +19,7 @@ public class User {
     }
 
     public String getTask() {
-        return Task;
+        return task;
 
     }
 

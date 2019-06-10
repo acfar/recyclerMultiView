@@ -1,11 +1,14 @@
 package com.example.lenovo.recyclerview.adapter;
 
+import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.lenovo.recyclerview.R;
+import com.example.lenovo.recyclerview.databinding.DonetodoListBinding;
+import com.example.lenovo.recyclerview.databinding.TodoListBinding;
 import com.example.lenovo.recyclerview.model.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,11 +26,16 @@ public class TodoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         if (viewType == 1) {
-            return new DoneTodoViewHolder(LayoutInflater.from(viewGroup.getContext())
-                    .inflate(R.layout.donetodo_list, viewGroup, false));
+             DonetodoListBinding binding = DataBindingUtil.inflate(LayoutInflater
+                            .from(viewGroup.getContext()), R.layout.donetodo_list, viewGroup,
+                    false);
+            return new DoneTodoViewHolder(binding);
+
         } else {
-            return new TodoViewHolder(LayoutInflater.from(viewGroup.getContext())
-                    .inflate(R.layout.todo_list, viewGroup, false));
+            TodoListBinding binding = DataBindingUtil.inflate(LayoutInflater
+                            .from(viewGroup.getContext()), R.layout.todo_list, viewGroup,
+                    false);
+            return new TodoViewHolder(binding);
         }
     }
 

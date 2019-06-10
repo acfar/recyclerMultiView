@@ -7,19 +7,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lenovo.recyclerview.R;
+import com.example.lenovo.recyclerview.databinding.TodoListBinding;
 import com.example.lenovo.recyclerview.model.User;
 
 public class TodoViewHolder extends RecyclerView.ViewHolder {
-    private ImageView avatar;
-    private TextView task;
 
-    public TodoViewHolder(@NonNull View itemView) {
-        super(itemView);
-        avatar = itemView.findViewById(R.id.avatar);
-        task = itemView.findViewById(R.id.task);
+    private TodoListBinding binding;
+
+    public TodoViewHolder(@NonNull TodoListBinding binding) {
+        super(binding.getRoot());
+        this.binding = binding;
     }
 
+
+
     public void bind(User user) {
-        task.setText(user.getTask());
+        binding.setUser(user);
     }
 }
